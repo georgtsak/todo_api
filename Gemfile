@@ -60,3 +60,6 @@ group :test do
   gem 'rspec-json_expectations'
 end
 
+group :test do
+  gem 'database_cleaner-active_record'
+end
