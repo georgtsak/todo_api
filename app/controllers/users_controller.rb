@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   def create
+    if existing_user = User.find_by(email: user_params[:email])
+      render json: { error: "Email has already been taken" }, status: :unprocessable_entity
+      return
+    end
+
     user = User.new(user_params)
     if user.save
       render json: { message: 'User created successfully' }, status: :created

@@ -6,3 +6,7 @@ require 'rspec/json_expectations'
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
+
+require 'json_spec'
+
+
