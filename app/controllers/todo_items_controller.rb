@@ -3,7 +3,8 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: [:show, :update, :destroy]
 
   def create
-    todo_item = @todo.todo_items.build(todo_item_params)
+    todo_item = @todo.todo_items.new(todo_item_params)
+
     if todo_item.save
       render json: todo_item, status: :created
     else
