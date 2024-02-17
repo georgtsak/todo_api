@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   post '/auth/login', to: 'sessions#create'
   get '/auth/logout', to: 'sessions#destroy'
+
   resources :todos do
     resources :todo_items, shallow: true
   end
@@ -17,4 +18,14 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update'
   put '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
+
+
+  post '/todos/:todo_id/items', to: 'todo_items#create'
+  get '/todos/:todo_id/items/:id', to: 'todo_items#show'
+
+  put '/todos/:todo_id/items/:id', to: 'todo_items#update'
+  delete '/todos/:todo_id/items/:id', to: 'todo_items#destroy'
+
+  
+
 end

@@ -3,6 +3,8 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: [:show, :update, :destroy]
 
   def create
+    puts "Todo ID: #{params[:todo_id]}"
+    @todo = Todo.find(params[:todo_id])
     todo_item = @todo.todo_items.new(todo_item_params)
 
     if todo_item.save
@@ -12,6 +14,11 @@ class TodoItemsController < ApplicationController
     end
   end
 
+  def index
+    @todo_items = @todo.todo_items
+    render json: @todo_items
+  end
+ 
   def show
     render json: @todo_item
   end
