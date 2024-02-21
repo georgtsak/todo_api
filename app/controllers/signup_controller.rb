@@ -16,6 +16,7 @@ class SignupController < ApplicationController
   private
 
   def user_params
-    params.permit(:email, :password, :password_confirmation).merge(password_digest: BCrypt::Password.create(params[:password]))
+    params.require(:signup).permit(:email, :password, :password_confirmation)
   end
+
 end
