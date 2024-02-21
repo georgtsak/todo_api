@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   get 'login/create'
   get 'login/destroy'
-  get 'signup/create'
-  post '/signup', to: 'users#create'
+  post '/signup', to: 'signup#create'
   post '/auth/login', to: 'sessions#create'
   get '/auth/logout', to: 'sessions#destroy'
+
+
 
   resources :todos do
     resources :todo_items, shallow: true

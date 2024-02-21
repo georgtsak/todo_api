@@ -12,7 +12,7 @@ gem "sqlite3", "~> 1.4"
 gem "puma", ">= 5.0"
 
 gem 'json_spec'
-
+gem 'bcrypt', '~> 3.1.7'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
