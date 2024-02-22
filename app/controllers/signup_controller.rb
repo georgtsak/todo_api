@@ -6,6 +6,9 @@ class SignupController < ApplicationController
     end
 
     user = User.new(user_params)
+
+    user.password_confirmation = user_params[:password_confirmation]
+
     if user.save
       render json: user, status: :created
     else
@@ -18,5 +21,4 @@ class SignupController < ApplicationController
   def user_params
     params.require(:signup).permit(:email, :password, :password_confirmation)
   end
-
 end
