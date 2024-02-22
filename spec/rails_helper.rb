@@ -21,6 +21,14 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+  
+  def user_params(email = "johndoe@example.com", password = "password123")
+    {
+      email: email,
+      password: password,
+      password_confirmation: password
+    }
+  end
 end
 
 
